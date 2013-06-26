@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('TrelloAnalyzeApp')
-    .controller('MainCtrl', function ($scope, TrelloNg) {
+    .controller('MainCtrl', ['$scope', 'TrelloNg', function ($scope, TrelloNg) {
 
         //---- board part
 
@@ -106,5 +106,5 @@ angular.module('TrelloAnalyzeApp')
             }
         );
 
-    });
+    }]);
 

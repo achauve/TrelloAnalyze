@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('TrelloAnalyzeApp', ['ui.bootstrap', 'LocalStorageModule'])
-    .config(function ($routeProvider) {
+    .config(['$routeProvider', function ($routeProvider) {
         $routeProvider
         .when('/', {
             templateUrl: 'views/main.html',
@@ -10,12 +10,12 @@ angular.module('TrelloAnalyzeApp', ['ui.bootstrap', 'LocalStorageModule'])
         .otherwise({
             redirectTo: '/'
         });
-    })
+    }])
     .config(['$httpProvider', function($httpProvider) {
         delete $httpProvider.defaults.headers.common["X-Requested-With"]
     }]).filter('encodeURIComponent', function() {
         return window.encodeURIComponent;
-    }).service('TrelloNg', function($q, $rootScope){
+    }).service('TrelloNg', [ '$q', '$rootScope', function($q, $rootScope){
 
         var TrelloNg = {};
 
@@ -37,6 +37,6 @@ angular.module('TrelloAnalyzeApp', ['ui.bootstrap', 'LocalStorageModule'])
         };
 
         return TrelloNg;
-    });
+    }]);
 
 
