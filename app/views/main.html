@@ -14,10 +14,11 @@
 <div ng-show="login.isLoggedIn">
     <p>Hello, {{model.member.fullName}}!</p>
     <button class="btn" ng-click="login.logoutFromTrello()">Logout</button>
-    <button class="btn" ng-click="model.refresh()">Refresh</button>
-    <select ng-model="model.activeBoard" ng-options="i.name for i in model.boards"/>
+    <button class="btn" ng-click="model.refreshActiveBoard()">Refresh</button>
+    <select ng-model="model.activeBoard" ng-options="i.name for i in model.boards">
+    </select>
 
-    <h1>{{model.board.name}}</h1>
+    <h1>{{model.activeBoard.name}}</h1>
     <ul>
         <li ng-repeat="list in model.activeLists">
             {{list.name}} | {{list.load}}

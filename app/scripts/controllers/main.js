@@ -14,7 +14,7 @@ angular.module('TrelloAnalyzeApp')
             $scope.model.boards = TrelloNg.query('members/me/boards');
         };
 
-        $scope.refreshActiveBoard = function () {
+        $scope.model.refreshActiveBoard = function () {
 
             if (angular.isUndefined($scope.model.activeBoard.id))
             {
@@ -46,7 +46,7 @@ angular.module('TrelloAnalyzeApp')
             );
         };
 
-        $scope.$watch('model.activeBoard', $scope.refreshActiveBoard);
+        $scope.$watch('model.activeBoard', $scope.model.refreshActiveBoard);
 
 
         //---- login part
@@ -98,10 +98,10 @@ angular.module('TrelloAnalyzeApp')
 
         // check trello authorization (=token) is still valid and has not been revoked
         TrelloNg.query('members/me').then(
-            function (response) {
+            function () {
                 $scope.model.refresh();
             },
-            function (response) { // error: token revoked (actually should be more detailed, only 401 mean revoked token)
+            function () { // error: token revoked (actually should be more detailed, only 401 mean revoked token)
                 $scope.login.logoutFromTrello();
             }
         );
