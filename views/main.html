@@ -1,3 +1,52 @@
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="#">TrelloAnalyze</a>
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    <li><a target="_blank" href="http://github.com/~achauve/trelloanalyze">Source on GitHub</a></li>
+                </ul>
+                <ul class="nav pull-right">
+                    <li><a target="_blank" href="http://trello.com">{{model.member.fullName}}</a></li>
+                    <li><button class="btn" ng-click="login.logoutFromTrello()">Logout</button></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div ng-show="login.isLoggedIn">
+        <div class="row-fluid">
+            <div class="span2">
+                <!--Sidebar content-->
+                <button class="btn" ng-click="model.refreshActiveBoard()">Refresh</button>
+                <select ng-model="model.activeBoard" ng-options="i.name for i in model.boards">
+                </select>
+            </div>
+            <div class="span10">
+                <!--Body content-->
+                <h1>{{model.activeBoard.name}}</h1>
+                <ul>
+                    <li ng-repeat="list in model.activeLists">
+                        {{list.name}} | {{list.load}}
+                        <ul>
+                            <li ng-repeat="card in list.cards">{{card.name}}</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
 <div modal="!login.isLoggedIn" options="loginOpts">
     <div class="modal-header">
         <h4>Login to Trello</h4>
@@ -8,23 +57,4 @@
     <div class="modal-footer">
         <button class="btn" ng-click="login.loginToTrello()">Login to trello</button>
     </div>
-</div>
-
-
-<div ng-show="login.isLoggedIn">
-    <p>Hello, {{model.member.fullName}}!</p>
-    <button class="btn" ng-click="login.logoutFromTrello()">Logout</button>
-    <button class="btn" ng-click="model.refreshActiveBoard()">Refresh</button>
-    <select ng-model="model.activeBoard" ng-options="i.name for i in model.boards">
-    </select>
-
-    <h1>{{model.activeBoard.name}}</h1>
-    <ul>
-        <li ng-repeat="list in model.activeLists">
-            {{list.name}} | {{list.load}}
-            <ul>
-                <li ng-repeat="card in list.cards">{{card.name}}</li>
-            </ul>
-        </li>
-    </ul>
 </div>
