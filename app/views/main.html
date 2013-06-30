@@ -26,7 +26,7 @@
             <div class="span2">
                 <!--Sidebar content-->
                 <button class="btn" ng-click="model.refreshActiveBoard()">Refresh</button>
-                <select ng-model="model.activeBoard" ng-options="i.name for i in model.boards">
+                <select ng-model="model.activeBoard" ng-options="i.name for i in model.boards" ng-change="model.refreshActiveBoard()">
                 </select>
             </div>
             <div class="span10">

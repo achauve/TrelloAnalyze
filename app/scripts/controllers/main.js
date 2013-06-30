@@ -46,8 +46,6 @@ angular.module('TrelloAnalyzeApp')
             );
         };
 
-        $scope.$watch('model.activeBoard', $scope.model.refreshActiveBoard);
-
 
         //---- login part
         $scope.login = {
