@@ -12,7 +12,9 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css styles/main.css -->
     <link rel="stylesheet" href="styles/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="components/ng-grid/ng-grid.css" />
     <link rel="stylesheet" href="styles/main.css">
+
     <!-- endbuild -->
   </head>
   <body ng-app="TrelloAnalyzeApp">
@@ -29,7 +31,7 @@
     <div ng-view></div>
 
     <!-- The Trello client library requires jQuery  -->
-    <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
     <script src="https://api.trello.com/1/client.js?key=88414eba9d36af43469c9a26e4d83920"></script>
 
 
@@ -39,6 +41,7 @@
     <script src="components/angular-cookies/angular-cookies.js"></script>
     <script src="components/angular-sanitize/angular-sanitize.js"></script>
     <script src="components/angular-bootstrap/ui-bootstrap.js"></script>
+    <script src="components/ng-grid/ng-grid-2.0.6.debug.js"></script>
     <script src="components/angular-localstorage/localStorageModule.js"></script>
 
     <script src="scripts/app.js"></script>

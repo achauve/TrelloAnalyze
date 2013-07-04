@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('TrelloAnalyzeApp', ['ui.bootstrap', 'LocalStorageModule'])
+angular.module('TrelloAnalyzeApp', ['ui.bootstrap', 'LocalStorageModule', 'ngGrid'])
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider
         .when('/', {

@@ -32,6 +32,10 @@
             <div class="span10">
                 <!--Body content-->
                 <h1>{{model.activeBoard.name}}</h1>
+
+                <div class="table gridStyle" ng-grid="arrayOptions">
+
+                </div>
                 <ul>
                     <li ng-repeat="list in model.activeLists">
                         {{list.name}} | {{list.load}}

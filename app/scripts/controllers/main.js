@@ -3,6 +3,13 @@
 angular.module('TrelloAnalyzeApp')
     .controller('MainCtrl', ['$scope', 'TrelloNg', function ($scope, TrelloNg) {
 
+        //---- config
+        $scope.arrayData = [];
+        $scope.arrayOptions = {
+            data: 'arrayData',
+            showGroupPanel: true
+        };
+
         //---- board part
 
         $scope.model = {};
@@ -37,6 +44,13 @@ angular.module('TrelloAnalyzeApp')
                                     card.load = parseFloat(myArray[1]);
                                     list.load += card.load;
                                 }
+
+                                $scope.arrayData.push({
+                                    name: card.name,
+                                    load: card.load,
+                                    list: list.name,
+                                    labels: card.labels.length > 0 ? card.labels[0].name : null
+                                });
 
                             });
                         });
