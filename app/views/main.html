@@ -13,7 +13,7 @@
                 </ul>
                 <ul class="nav pull-right">
                     <li><a target="_blank" href="http://trello.com">{{model.member.fullName}}</a></li>
-                    <li><button class="btn" ng-click="login.logoutFromTrello()">Logout</button></li>
+                    <li><button class="btn btn" ng-click="login.logoutFromTrello()">Logout</button></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div>
@@ -32,14 +32,13 @@
             <div class="span10">
                 <!--Body content-->
                 <h1>{{model.activeBoard.name}}</h1>
-                <ul>
-                    <li ng-repeat="list in model.activeLists">
-                        {{list.name}} | {{list.load}}
+                <accordion close-others="false">
+                    <accordion-group heading="{{list.name}} | {{list.load}}" ng-repeat="list in model.activeLists">
                         <ul>
                             <li ng-repeat="card in list.cards">{{card.name}}</li>
                         </ul>
-                    </li>
-                </ul>
+                    </accordion-group>
+                </accordion>
             </div>
         </div>
     </div>
