@@ -31,7 +31,7 @@ angular.module('TrelloAnalyzeApp')
                         list.cards.then(function (cardList) {
                             angular.forEach(cardList, function (card) {
                                 var name = card.name;
-                                var loadRegexp = /\((\d+\.?\d*\+?)\)/g;
+                                var loadRegexp = /\((\d+\.?\d*.?)\)/g;
                                 var myArray = loadRegexp.exec(name);
                                 if (myArray) {
                                     card.load = parseFloat(myArray[1]);
