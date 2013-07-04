@@ -23,13 +23,17 @@
 <div class="container-fluid">
     <div ng-show="login.isLoggedIn">
         <div class="row-fluid">
-            <div class="span2">
+            <div class="span3">
                 <!--Sidebar content-->
-                <button class="btn" ng-click="model.refreshActiveBoard()">Refresh</button>
-                <select ng-model="model.activeBoard" ng-options="i.name for i in model.boards" ng-change="model.refreshActiveBoard()">
-                </select>
+                <ul class="nav nav-list">
+                    <li class="nav-header">Choose board</li>
+                    <li><select ng-model="model.activeBoard" ng-options="i.name for i in model.boards" ng-change="model.refreshActiveBoard()">
+                        </select>
+                    </li>
+                    <li><button class="btn" ng-click="model.refreshActiveBoard()">Refresh</button></li>
+                </ul>
             </div>
-            <div class="span10">
+            <div class="span9">
                 <!--Body content-->
                 <h1>{{model.activeBoard.name}}</h1>
                 <accordion close-others="false">
